@@ -1,0 +1,7 @@
+mongodb+srv://sigterm9kill:<password>@devconnect.rvskj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+
+
+username: sigterm9kill
+pword: i0ewe71m3
+
