@@ -7,7 +7,7 @@ const db = config.get('mongoURI');
 const connectDB = async () =>
 {
     try {
-        await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
         // https://stackoverflow.com/questions/57895175/server-discovery-and-monitoring-engine-is-deprecated
         console.log('MongoDB Connected...')
     } catch (err) {
