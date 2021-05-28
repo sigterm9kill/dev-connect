@@ -2,24 +2,21 @@ const mongoose = require('mongoose');
 const config = require('config');
 const db = config.get('mongoURI');
 
-// returns a promise (async-await)
+const connectDB = async () => {
+	try {
+		await mongoose.connect(db, {
+			useNewUrlParser: true,
+			useCreateIndex: true,
+			useFindAndModify: false,
+			useUnifiedTopology: true
+		});
 
-const connectDB = async () =>
-{
-    try {
-        await mongoose.connect(db, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true,
-            useFindAndModify: false
-        });
-        // https://stackoverflow.com/questions/57895175/server-discovery-and-monitoring-engine-is-deprecated
-        console.log('MongoDB Connected...')
-    } catch (err) {
-        console.error(err.message);
-        // Exit process with failure
-        process.exit(1);
-    }
-}
+		console.log('MongoDB Connected...');
+	} catch (err) {
+		console.error(err.message);
+		// Exit process with failure
+		process.exit(1);
+	}
+};
 
-module.exports = connectDB; 
+module.exports = connectDB;
